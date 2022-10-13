@@ -452,28 +452,56 @@ namespace PolicyManagement.Services.Motor
                                                   })
                                                   .FirstOrDefaultAsync();
 
-            motorPolicy.PaymentData = await _dataContext.tblPolicyPaymentData.Where(w => w.PolicyId == policyId)
-                                                                              .Select(s => new PaymentFormDataModel
-                                                                              {
-                                                                                  Amount = s.PaymentAmount,
-                                                                                  Bank = s.BankId ?? 0,
-                                                                                  Dated = s.ChequeDate,
-                                                                                  InstrumentNumber = s.ChequeNo,
-                                                                                  Mode = s.PaymentModeId
-                                                                              })
-                                                                              .ToListAsync();
+            try
+            {
+                var data = await _dataContext.tblPolicyPaymentData.Where(w => w.PolicyId == policyId).ToListAsync();
 
-            motorPolicy.Document = await _dataContext.tblUploadedDocuments.Join(_dataContext.tblDocmentType, T1 => T1.DocId, T2 => T2.DocId, (T1, T2) => new { T1, T2 })
-                                                                           .Where(w => w.T1.PolicyId == policyId)
-                                                                           .Select(s => new DocumentModel
-                                                                           {
-                                                                               DocumentId = s.T1.DocumentId,
-                                                                               DocumentTypeId = s.T1.DocId,
-                                                                               DocumentTypeName = s.T2.Name,
-                                                                               FileName = s.T1.OriginalFileName,
-                                                                               Remarks = s.T1.Remarks
-                                                                           })
-                                                                           .ToListAsync();
+                if (data != null && data.Count > 0)
+                { 
+                    var dataPaymentFormDataModel = data.Select(s => new PaymentFormDataModel
+                    {
+                        Amount = s.PaymentAmount,
+                        Bank = s.BankId ?? 0,
+                        Dated = s.ChequeDate,
+                        InstrumentNumber = s.ChequeNo,
+                        Mode = s.PaymentModeId
+                    }).ToList();
+
+                    motorPolicy.PaymentData = new List<PaymentFormDataModel>();
+                    motorPolicy.PaymentData = dataPaymentFormDataModel;
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                
+            }
+
+            try
+            {
+                var data = await _dataContext.tblUploadedDocuments.Join(_dataContext.tblDocmentType, T1 => T1.DocId, T2 => T2.DocId, (T1, T2) => new { T1, T2 })
+                                                                                  .Where(w => w.T1.PolicyId == policyId).ToListAsync();
+
+                if (data != null && data.Count > 0)
+                {
+                    motorPolicy.Document = data.Select(s => new DocumentModel
+                    {
+                        DocumentId = s.T1.DocumentId,
+                        DocumentTypeId = s.T1.DocId,
+                        DocumentTypeName = s.T2.Name,
+                        FileName = s.T1.OriginalFileName,
+                        Remarks = s.T1.Remarks
+                    }).ToList();
+
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+
+            }
 
             motorPolicy.CoverNoteIssueDateDto = _commonService.GetDate(motorPolicy.CoverNoteIssueDate);
             //motorPolicy.InspectionData.InspectionDateDto = _commonService.GetDate(motorPolicy.InspectionData.InspectionDate);
