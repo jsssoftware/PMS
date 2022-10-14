@@ -462,7 +462,7 @@ namespace PolicyManagement.Services.Motor
                     {
                         Amount = s.PaymentAmount,
                         Bank = s.BankId ?? 0,
-                        Dated = s.ChequeDate,
+                        Dated = s.ChequeDate,  
                         InstrumentNumber = s.ChequeNo,
                         Mode = s.PaymentModeId
                     }).ToList();

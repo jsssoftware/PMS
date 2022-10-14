@@ -241,5 +241,20 @@ namespace PolicyManagement.Api.Controllers.Common
             PreserveReferencesHandling = PreserveReferencesHandling.Objects
         });
 
+
+
+        [Route("products")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetProducts() => Json(await _commonService.FindAllProducts());
+
+
+        [Route("plans/{productId}")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetPlans(int productId) => Json(await _commonService.FindAllPlans(productId));
+
+
+        [Route("planTypes")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetPlanTypes() => Json(await _commonService.FindAllPlanTypes());
     }
 }

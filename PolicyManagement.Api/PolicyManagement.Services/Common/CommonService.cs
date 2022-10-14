@@ -1215,5 +1215,32 @@ namespace PolicyManagement.Services.Common
             lst = await _dataContext.tblMenuItem.Where(x=>x.ParentNode==null).ToListAsync();
             return lst;
         }
+
+        public async Task<List<DropDownDto<int>>> FindAllProducts() => await _dataContext.tblProduct.Where(w => w.IsActive)
+                                                                                           .Select(s => new DropDownDto<int>
+                                                                                           {
+                                                                                               Name = s.ProductName,
+                                                                                               Value = s.ProductId
+                                                                                           })
+                                                                                           .OrderBy(o => o.Name)
+                                                                                           .ToListAsync();
+
+        public async Task<List<DropDownDto<int>>> FindAllPlans(int _productId) => await _dataContext.tblPlan.Where(w => w.IsActive && w.ProductId == _productId)
+                                                                                           .Select(s => new DropDownDto<int>
+                                                                                           {
+                                                                                               Name = s.PlanName,
+                                                                                               Value = s.PlanId
+                                                                                           })
+                                                                                           .OrderBy(o => o.Name)
+                                                                                           .ToListAsync();
+
+        public async Task<List<DropDownDto<int>>> FindAllPlanTypes() => await _dataContext.tblPlanType.Where(w => w.IsActive)
+                                                                                           .Select(s => new DropDownDto<int>
+                                                                                           {
+                                                                                               Name = s.PlanTypeName,
+                                                                                               Value = s.PlanTypeId
+                                                                                           })
+                                                                                           .OrderBy(o => o.Name)
+                                                                                           .ToListAsync();
     }
 }
