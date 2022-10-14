@@ -1242,5 +1242,13 @@ namespace PolicyManagement.Services.Common
                                                                                            })
                                                                                            .OrderBy(o => o.Name)
                                                                                            .ToListAsync();
+        public async Task<List<DropDownDto<int>>> FindAllPortability() => await _dataContext.tblPortability.Where(w => w.IsActive)
+                                                                                           .Select(s => new DropDownDto<int>
+                                                                                           {
+                                                                                               Name = s.Portability,
+                                                                                               Value = s.PortabilityId
+                                                                                           })
+                                                                                           .OrderBy(o => o.Name)
+                                                                                           .ToListAsync();
     }
 }

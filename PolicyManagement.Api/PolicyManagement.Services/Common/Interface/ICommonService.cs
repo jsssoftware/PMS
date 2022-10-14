@@ -69,12 +69,9 @@ namespace PolicyManagement.Services.Common.Interface
         Task<List<PolicyDocumentDto>> FindPolicyDocumentsById(int policyId);
         Task<DataTableDto<List<SearchPolicyFinalDownloadDto>>> FindAllPoliciesDownload(SearchPolicyModel model);
         Task<List<tblMenuItem>> GetMenus();
-
         Task<List<DropDownDto<int>>> FindAllProducts();
-
         Task<List<DropDownDto<int>>> FindAllPlans(int _productId);
-
         Task<List<DropDownDto<int>>> FindAllPlanTypes();
-
+        Task<List<DropDownDto<int>>> FindAllPortability(); 
     }
 }

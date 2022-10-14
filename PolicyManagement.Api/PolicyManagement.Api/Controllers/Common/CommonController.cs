@@ -256,5 +256,9 @@ namespace PolicyManagement.Api.Controllers.Common
         [Route("planTypes")]
         [HttpGet]
         public async Task<IHttpActionResult> GetPlanTypes() => Json(await _commonService.FindAllPlanTypes());
+
+        [Route("portability")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetPortability() => Json(await _commonService.FindAllPortability());
     }
 }
