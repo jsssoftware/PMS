@@ -35,7 +35,7 @@ namespace PolicyManagement.Services.Common.Interface
         Task<List<DropDownDto<int>>> FindAllNcbs();
         Task<List<DropDownDto<int>>> FindAllCommissionPaidOn();
         Task<List<DropDownDto<int>>> FindAllAddOnRiders(int insuranceCompanyId, int verticalId);
-        Task<List<AddOnPlanOptionDto>> FindAllAddOnPlanOptions(int addOnRiderId, int verticalId);
+        Task<List<AddOnPlanOptionDto>> FindAllAddOnPlanOptions(int addOnRiderId, int verticalId,int policyId);
         Task<List<DropDownDto<int>>> FindAllRelations();
         Task<List<DropDownDto<int>>> FindAllTeleCallers(Vertical vertical, int branchId);
         Task<List<DropDownDto<int>>> FindAllReferences(int branchId);

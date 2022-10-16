@@ -438,19 +438,21 @@ namespace PolicyManagement.Services.Common
                 .OrderBy(o => o.Name)
                 .ToListAsync();
 
-        public async Task<List<AddOnPlanOptionDto>> FindAllAddOnPlanOptions(int addOnRiderId, int verticalId)
+        public async Task<List<AddOnPlanOptionDto>> FindAllAddOnPlanOptions(int addOnRiderId, int verticalId,int policyId)
         {
             List<AddOnPlanOptionDto> addOnPlanOptionDtos = new List<AddOnPlanOptionDto>();
             //List<tblAddonPlanOption> addOnPlanOptions = await _dataContext.tblAddonPlanOptions.Where(w => w.VerticalId == verticalId && w.IsActive).OrderBy(o => o.DisplayOrder).ToListAsync();
             List<tblAddonPlanOption> addOnPlanOptions = await _dataContext.tblAddonPlanOption.Where(w => w.VerticalId == verticalId && w.IsActive).ToListAsync();
             List<tblAddonPlanOptionMapping> addOnPlanOptionMappings = await _dataContext.tblAddonPlanOptionMapping.Where(w => w.AddonPlanRiderId == addOnRiderId && w.IsActive).ToListAsync();
-
+            List<tblPolicyAddonOptionDetails> policyAddonOptionDetails = await _dataContext.tblPolicyAddonOptionDetails.Where(x => x.PolicyId == policyId).ToListAsync();
+            
             addOnPlanOptions.ForEach(f => addOnPlanOptionDtos.Add(new AddOnPlanOptionDto
             {
                 AddonPlanOptionDescripation = f.AddonPlanOptionDescripation,
                 AddonPlanOptionId = f.AddonPlanOptionId,
                 AddonPlanOptionName = f.AddonPlanOptionName,
-                IsPlanAvailable = addOnPlanOptionMappings.Any(a => a.AddonPlanOptionId == f.AddonPlanOptionId)
+                IsPlanAvailable = addOnPlanOptionMappings.Any(a => a.AddonPlanOptionId == f.AddonPlanOptionId),
+                AddonValue = policyAddonOptionDetails.FirstOrDefault(x=>x.AddonPlanOptionId==f.AddonPlanOptionId)?.AddonValue 
             }));
 
             return addOnPlanOptionDtos;

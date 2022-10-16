@@ -132,7 +132,7 @@ namespace PolicyManagement.Api.Controllers.Common
 
         [Route("add-on-plan-options")]
         [HttpGet]
-        public async Task<IHttpActionResult> GetAddOnPlanOptions(int addOnRiderId, int verticalId) => Json(await _commonService.FindAllAddOnPlanOptions(addOnRiderId, verticalId));
+        public async Task<IHttpActionResult> GetAddOnPlanOptions(int addOnRiderId, int verticalId,int policyId) => Json(await _commonService.FindAllAddOnPlanOptions(addOnRiderId, verticalId, policyId));
 
         [Route("relations")]
         [HttpGet]
