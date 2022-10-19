@@ -434,10 +434,16 @@
     <Compile Include="EntityFramework\Usp_InspectionByPolicyId_Result.cs">
       <DependentUpon>PolicyManagement.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityFramework\Usp_InspectionByPolicyId_Result1.cs">
+      <DependentUpon>PolicyManagement.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityFramework\Usp_PolicyDocuments1_Result.cs">
       <DependentUpon>PolicyManagement.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\Usp_PolicyDocuments_Result.cs">
+      <DependentUpon>PolicyManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFramework\Usp_PolicyDocuments_Result1.cs">
       <DependentUpon>PolicyManagement.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFramework\Usp_UploadedDocuments1_Result.cs">

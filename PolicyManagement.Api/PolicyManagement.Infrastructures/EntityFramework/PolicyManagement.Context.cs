@@ -2107,24 +2107,6 @@ namespace PolicyManagement.Infrastructures.EntityFramework
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usp_UploadedDocuments_Result>("Usp_UploadedDocuments", inspectionIdParameter);
         }
     
-        public virtual ObjectResult<Usp_InspectionByPolicyId_Result> Usp_InspectionByPolicyId(Nullable<int> policyId)
-        {
-            var policyIdParameter = policyId.HasValue ?
-                new ObjectParameter("policyId", policyId) :
-                new ObjectParameter("policyId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usp_InspectionByPolicyId_Result>("Usp_InspectionByPolicyId", policyIdParameter);
-        }
-    
-        public virtual ObjectResult<Usp_PolicyDocuments_Result> Usp_PolicyDocuments(Nullable<int> policyId)
-        {
-            var policyIdParameter = policyId.HasValue ?
-                new ObjectParameter("policyId", policyId) :
-                new ObjectParameter("policyId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usp_PolicyDocuments_Result>("Usp_PolicyDocuments", policyIdParameter);
-        }
-    
         public virtual int GetOtherHelathPolicy1(Nullable<int> policyId, Nullable<int> customerID)
         {
             var policyIdParameter = policyId.HasValue ?
@@ -2390,15 +2372,6 @@ namespace PolicyManagement.Infrastructures.EntityFramework
                 new ObjectParameter("ManufacturereId", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Usp_GrossPremiumSearch1", fromDateParameter, toDateParameter, verticalParameter, branchIdParameter, poilcyPackageIDParameter, insurencecompanyParameter, vehicleTypeParameter, manufacturereIdParameter);
-        }
-    
-        public virtual ObjectResult<Usp_InspectionByPolicyId1_Result> Usp_InspectionByPolicyId1(Nullable<int> policyId)
-        {
-            var policyIdParameter = policyId.HasValue ?
-                new ObjectParameter("policyId", policyId) :
-                new ObjectParameter("policyId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usp_InspectionByPolicyId1_Result>("Usp_InspectionByPolicyId1", policyIdParameter);
         }
     
         public virtual int Usp_InsuranceSearch1(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate, Nullable<int> vertical, Nullable<int> branchId, string poilcyPackageID, string manufacturereId, string vehicleType)
@@ -2785,15 +2758,6 @@ namespace PolicyManagement.Infrastructures.EntityFramework
                 new ObjectParameter("ManufacturereId", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Usp_NCBSearch1", fromDateParameter, toDateParameter, verticalParameter, branchIdParameter, poilcyPackageIDParameter, insurencecompanyParameter, vehicleTypeParameter, manufacturereIdParameter);
-        }
-    
-        public virtual ObjectResult<Usp_PolicyDocuments1_Result> Usp_PolicyDocuments1(Nullable<int> policyId)
-        {
-            var policyIdParameter = policyId.HasValue ?
-                new ObjectParameter("policyId", policyId) :
-                new ObjectParameter("policyId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usp_PolicyDocuments1_Result>("Usp_PolicyDocuments1", policyIdParameter);
         }
     
         public virtual int Usp_ProcForHomePageChart1(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> toDate, Nullable<int> iD, Nullable<int> vertical, Nullable<int> branchId)
@@ -4089,6 +4053,24 @@ namespace PolicyManagement.Infrastructures.EntityFramework
                 new ObjectParameter("Insurencecompany", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Usp_VerticalSearch1", fromDateParameter, toDateParameter, verticalParameter, branchIdParameter, insurencecompanyParameter);
+        }
+    
+        public virtual ObjectResult<Usp_PolicyDocuments_Result1> Usp_PolicyDocuments(Nullable<int> policyId)
+        {
+            var policyIdParameter = policyId.HasValue ?
+                new ObjectParameter("policyId", policyId) :
+                new ObjectParameter("policyId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usp_PolicyDocuments_Result1>("Usp_PolicyDocuments", policyIdParameter);
+        }
+    
+        public virtual ObjectResult<Usp_InspectionByPolicyId_Result1> Usp_InspectionByPolicyId(Nullable<int> policyId)
+        {
+            var policyIdParameter = policyId.HasValue ?
+                new ObjectParameter("policyId", policyId) :
+                new ObjectParameter("policyId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usp_InspectionByPolicyId_Result1>("Usp_InspectionByPolicyId", policyIdParameter);
         }
     }
 }

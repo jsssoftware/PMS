@@ -394,12 +394,6 @@
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="ModifiedTime" Type="smalldatetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'PolicyManager.dbo.tblCompanyDetails' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tblCompanyDetails">
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
-          <Property Name="EmpGroup" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="tblCoverage">
           <Key>
             <PropertyRef Name="CoverageId" />
@@ -1904,13 +1898,6 @@ warning 6013: The table/view 'PolicyManager.dbo.tblCompanyDetails' does not have
           <Property Name="ModifiedBy" Type="int" />
           <Property Name="ModifiedTime" Type="smalldatetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'PolicyManager.dbo.tblVersion' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tblVersion">
-          <Property Name="Major" Type="tinyint" />
-          <Property Name="Minor" Type="tinyint" />
-          <Property Name="Revision" Type="tinyint" />
-        </EntityType>-->
         <EntityType Name="tblVertical">
           <Key>
             <PropertyRef Name="VerticalId" />
@@ -2554,96 +2541,6 @@ warning 6002: The table/view 'PolicyManager.dbo.viewCustomerCare' does not have 
           <Property Name="MakeYearId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'PolicyManager.dbo.viewCustomerCare_With CustomerAndPolicytable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="viewCustomerCare_With CustomerAndPolicytable">
-          <Property Name="CustomerCallDataId" Type="int" />
-          <Property Name="ControlNo" Type="int" />
-          <Property Name="PolicyId" Type="int" />
-          <Property Name="VerticalName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerId" Type="int" />
-          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
-          <Property Name="CustomerContact" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerSTD1" Type="nvarchar" MaxLength="5" />
-          <Property Name="CustomerPhone1" Type="nvarchar" MaxLength="10" />
-          <Property Name="CustomerSTD2" Type="nvarchar" MaxLength="5" />
-          <Property Name="CustomerPhone2" Type="nvarchar" MaxLength="10" />
-          <Property Name="CustomerSTD3" Type="nvarchar" MaxLength="5" />
-          <Property Name="CustomerPhone3" Type="nvarchar" MaxLength="10" />
-          <Property Name="CustomerMobile1" Type="nvarchar" MaxLength="15" />
-          <Property Name="InactiveMobile1" Type="tinyint" />
-          <Property Name="CustomerMobile2" Type="nvarchar" MaxLength="15" />
-          <Property Name="InactiveMobile2" Type="tinyint" />
-          <Property Name="CustomerMobile3" Type="nvarchar" MaxLength="15" />
-          <Property Name="InactiveMobile3" Type="tinyint" />
-          <Property Name="CustomerMobile4" Type="nvarchar" MaxLength="15" />
-          <Property Name="InactiveMobile4" Type="tinyint" />
-          <Property Name="CustomerEmail1" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerEmail2" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegistrationNo" Type="nvarchar" MaxLength="11" />
-          <Property Name="CallTypeName" Type="nvarchar" MaxLength="50" />
-          <Property Name="PolicyStartDate" Type="smalldatetime" />
-          <Property Name="ModelName" Type="nvarchar" MaxLength="50" />
-          <Property Name="MakeYear" Type="nvarchar" MaxLength="4" />
-          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Q1Response" Type="tinyint" />
-          <Property Name="Q1Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q2Response" Type="tinyint" />
-          <Property Name="Q2Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q3Response" Type="tinyint" />
-          <Property Name="Q3Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q5Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="CallStatusId" Type="tinyint" />
-          <Property Name="SubStatusId" Type="tinyint" />
-          <Property Name="FollowupDate" Type="smalldatetime" />
-          <Property Name="FinalComment" Type="nvarchar" MaxLength="500" />
-          <Property Name="DSAId" Type="smallint" />
-          <Property Name="SubStatusName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastCallDate" Type="smalldatetime" />
-          <Property Name="CallTypeId" Type="int" />
-          <Property Name="CallDurationTypeId" Type="int" />
-          <Property Name="Expr1" Type="int" />
-          <Property Name="Q4Response" Type="tinyint" />
-          <Property Name="Q4Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q5Response" Type="tinyint" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'PolicyManager.dbo.viewCustomerCare_With_PolicyTable' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="viewCustomerCare_With_PolicyTable">
-          <Property Name="CustomerCallDataId" Type="int" />
-          <Property Name="ControlNo" Type="int" />
-          <Property Name="VerticalName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegistrationNo" Type="nvarchar" MaxLength="11" />
-          <Property Name="CallTypeName" Type="nvarchar" MaxLength="50" />
-          <Property Name="PolicyStartDate" Type="smalldatetime" />
-          <Property Name="ModelName" Type="nvarchar" MaxLength="50" />
-          <Property Name="MakeYear" Type="nvarchar" MaxLength="4" />
-          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Q1Response" Type="tinyint" />
-          <Property Name="Q1Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q2Response" Type="tinyint" />
-          <Property Name="Q2Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q3Response" Type="tinyint" />
-          <Property Name="Q3Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q5Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="CallStatusId" Type="tinyint" />
-          <Property Name="SubStatusId" Type="tinyint" />
-          <Property Name="FollowupDate" Type="smalldatetime" />
-          <Property Name="FinalComment" Type="nvarchar" MaxLength="500" />
-          <Property Name="DSAId" Type="smallint" />
-          <Property Name="SubStatusName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastCallDate" Type="smalldatetime" />
-          <Property Name="CallTypeId" Type="int" />
-          <Property Name="CallDurationTypeId" Type="int" />
-          <Property Name="Q4Response" Type="tinyint" />
-          <Property Name="Q4Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="Q5Response" Type="tinyint" />
-          <Property Name="CustomerId" Type="int" />
-          <Property Name="NameInPolicy" Type="nvarchar" MaxLength="100" />
-          <Property Name="PolicyId" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'PolicyManager.dbo.ViewCustomerCareCrossSell' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ViewCustomerCareCrossSell">
           <Key>
@@ -2977,36 +2874,6 @@ warning 6002: The table/view 'PolicyManager.dbo.ViewPersonDataBirthdayWish' does
           <Property Name="CustomerEmail1" Type="nvarchar" MaxLength="50" />
           <Property Name="BranchId" Type="tinyint" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'PolicyManager.dbo.ViewReferenceLeads' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ViewReferenceLeads">
-          <Property Name="CrossSellChkNewPost" Type="int" />
-          <Property Name="VerticalName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
-          <Property Name="CrossSellExpiryDate" Type="smalldatetime" />
-          <Property Name="assignee" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerCode" Type="nvarchar" MaxLength="20" />
-          <Property Name="ControlNo" Type="int" />
-          <Property Name="NameInPolicy" Type="nvarchar" MaxLength="100" />
-          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
-          <Property Name="CustomerMobile1" Type="nvarchar" MaxLength="15" />
-          <Property Name="CustomerMobile2" Type="nvarchar" MaxLength="15" />
-          <Property Name="CustomerMobile3" Type="nvarchar" MaxLength="15" />
-          <Property Name="CustomerMobile4" Type="nvarchar" MaxLength="15" />
-          <Property Name="CustomerId" Type="int" />
-          <Property Name="CustomerContact" Type="nvarchar" MaxLength="50" />
-          <Property Name="CustomerAddress1" Type="nvarchar" MaxLength="200" />
-          <Property Name="CallDurationTypeName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Q5Comment" Type="nvarchar" MaxLength="100" />
-          <Property Name="LastCallDate" Type="smalldatetime" />
-          <Property Name="ReferenceProvider" Type="nvarchar" MaxLength="50" />
-          <Property Name="CrossSellInsureCompanyIdPost" Type="int" />
-          <Property Name="CrossSellVerticalIdPost" Type="int" />
-          <Property Name="CrossSellTelecallerIdPost" Type="int" />
-          <Property Name="AssigneeId" Type="int" />
-          <Property Name="ReferenceProviderId" Type="int" />
-          <Property Name="CallDurationTypeId" Type="int" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="viewRenewPerformance">
@@ -5224,12 +5091,6 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
           <FunctionImport Name="Usp_UploadedDocuments" ReturnType="Collection(PolicyManagerModel.Usp_UploadedDocuments_Result)">
           <Parameter Name="inspectionId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="Usp_InspectionByPolicyId" ReturnType="Collection(PolicyManagerModel.Usp_InspectionByPolicyId_Result)">
-          <Parameter Name="policyId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="Usp_PolicyDocuments" ReturnType="Collection(PolicyManagerModel.Usp_PolicyDocuments_Result)">
-          <Parameter Name="policyId" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="sysdiagrams" EntityType="PolicyManagerModel.sysdiagrams" />
           <EntitySet Name="tblAddonPlanOption" EntityType="PolicyManagerModel.tblAddonPlanOption" />
           <EntitySet Name="tblAddonPlanOptionMapping" EntityType="PolicyManagerModel.tblAddonPlanOptionMapping" />
@@ -5402,10 +5263,10 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             <Parameter Name="CustomerID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetPolicyFamilyDtl1" ReturnType="Collection(PolicyManagerModel.GetPolicyFamilyDtl1_Result)">
-            <Parameter Name="PolicyId" Mode="In" Type="Int32" />
+          <Parameter Name="PolicyId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Sp_GetTelecallerReassignData1">
-            <Parameter Name="Telecaller" Mode="In" Type="Int32" />
+          <Parameter Name="Telecaller" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Sp_GetTelecallerReverData1">
             <Parameter Name="Telecaller" Mode="In" Type="Int32" />
@@ -5460,7 +5321,7 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             <Parameter Name="ManufacturereId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Usp_GetManufacturer1" ReturnType="Collection(PolicyManagerModel.Usp_GetManufacturer1_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Usp_GrossPremiumSearch1">
             <Parameter Name="FromDate" Mode="In" Type="DateTime" />
@@ -5471,9 +5332,6 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             <Parameter Name="Insurencecompany" Mode="In" Type="String" />
             <Parameter Name="VehicleType" Mode="In" Type="String" />
             <Parameter Name="ManufacturereId" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="Usp_InspectionByPolicyId1" ReturnType="Collection(PolicyManagerModel.Usp_InspectionByPolicyId1_Result)">
-            <Parameter Name="policyId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Usp_InsuranceSearch1">
             <Parameter Name="FromDate" Mode="In" Type="DateTime" />
@@ -5509,7 +5367,7 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             <Parameter Name="BranchId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Usp_MarketCrossReferencing1">
-            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+          <Parameter Name="BranchId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Usp_MarketDataSourceSearch1">
             <Parameter Name="FromDate" Mode="In" Type="DateTime" />
@@ -5581,9 +5439,6 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             <Parameter Name="Insurencecompany" Mode="In" Type="String" />
             <Parameter Name="VehicleType" Mode="In" Type="String" />
             <Parameter Name="ManufacturereId" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="Usp_PolicyDocuments1" ReturnType="Collection(PolicyManagerModel.Usp_PolicyDocuments1_Result)">
-            <Parameter Name="policyId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Usp_ProcForHomePageChart1">
             <Parameter Name="FromDate" Mode="In" Type="DateTime" />
@@ -5925,7 +5780,7 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             <Parameter Name="TelecallerId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Usp_UploadedDocuments1" ReturnType="Collection(PolicyManagerModel.Usp_UploadedDocuments1_Result)">
-            <Parameter Name="inspectionId" Mode="In" Type="Int32" />
+          <Parameter Name="inspectionId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Usp_VehicleClassSearch1">
             <Parameter Name="FromDate" Mode="In" Type="DateTime" />
@@ -5946,6 +5801,12 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             <Parameter Name="Vertical" Mode="In" Type="Int32" />
             <Parameter Name="BranchId" Mode="In" Type="Int32" />
             <Parameter Name="Insurencecompany" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_PolicyDocuments" ReturnType="Collection(PolicyManagerModel.Usp_PolicyDocuments_Result1)">
+          <Parameter Name="policyId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_InspectionByPolicyId" ReturnType="Collection(PolicyManagerModel.Usp_InspectionByPolicyId_Result1)">
+            <Parameter Name="policyId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetPolicyFamilyDtl_Result">
@@ -9087,6 +8948,19 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
           <Property Type="String" Name="FileName" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Remarks" Nullable="true" MaxLength="200" />
         </ComplexType>
+        <ComplexType Name="Usp_PolicyDocuments_Result1">
+          <Property Type="Int32" Name="Id" Nullable="true" />
+          <Property Type="String" Name="DocumentType" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="FileName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Remarks" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="Usp_InspectionByPolicyId_Result1">
+          <Property Type="Int32" Name="InspectionId" Nullable="false" />
+          <Property Type="DateTime" Name="InspectionDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="InspectionReason" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="InspectionStatus" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="InspectionSubStatus" Nullable="true" MaxLength="30" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -12051,17 +11925,6 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Usp_GrossPremiumSearch1" FunctionName="PolicyManagerModel.Store.Usp_GrossPremiumSearch" />
-          <FunctionImportMapping FunctionImportName="Usp_InspectionByPolicyId1" FunctionName="PolicyManagerModel.Store.Usp_InspectionByPolicyId">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="PolicyManagerModel.Usp_InspectionByPolicyId1_Result">
-                <ScalarProperty Name="InspectionId" ColumnName="InspectionId" />
-                <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
-                <ScalarProperty Name="InspectionReason" ColumnName="InspectionReason" />
-                <ScalarProperty Name="InspectionStatus" ColumnName="InspectionStatus" />
-                <ScalarProperty Name="InspectionSubStatus" ColumnName="InspectionSubStatus" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Usp_InsuranceSearch1" FunctionName="PolicyManagerModel.Store.Usp_InsuranceSearch" />
           <FunctionImportMapping FunctionImportName="Usp_LastYearTeleCallerSearch1" FunctionName="PolicyManagerModel.Store.Usp_LastYearTeleCallerSearch" />
           <FunctionImportMapping FunctionImportName="Usp_Lost_TelecallerDashboard1" FunctionName="PolicyManagerModel.Store.Usp_Lost_TelecallerDashboard" />
@@ -12076,16 +11939,6 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
           <FunctionImportMapping FunctionImportName="Usp_MarketVehiclerSearch1" FunctionName="PolicyManagerModel.Store.Usp_MarketVehiclerSearch" />
           <FunctionImportMapping FunctionImportName="Usp_MotorSearch1" FunctionName="PolicyManagerModel.Store.Usp_MotorSearch" />
           <FunctionImportMapping FunctionImportName="Usp_NCBSearch1" FunctionName="PolicyManagerModel.Store.Usp_NCBSearch" />
-          <FunctionImportMapping FunctionImportName="Usp_PolicyDocuments1" FunctionName="PolicyManagerModel.Store.Usp_PolicyDocuments">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="PolicyManagerModel.Usp_PolicyDocuments1_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Usp_ProcForHomePageChart1" FunctionName="PolicyManagerModel.Store.Usp_ProcForHomePageChart" />
           <FunctionImportMapping FunctionImportName="Usp_ProcForHomePageDailyCount1" FunctionName="PolicyManagerModel.Store.Usp_ProcForHomePageDailyCount" />
           <FunctionImportMapping FunctionImportName="Usp_ProductSearch1" FunctionName="PolicyManagerModel.Store.Usp_ProductSearch" />
@@ -12146,6 +11999,27 @@ warning 6002: The table/view 'PolicyManager.dbo.viewRenewPerformanceNonMotor' do
           <FunctionImportMapping FunctionImportName="Usp_VehicleClassSearch1" FunctionName="PolicyManagerModel.Store.Usp_VehicleClassSearch" />
           <FunctionImportMapping FunctionImportName="Usp_VertcalBaseTelecaller1" FunctionName="PolicyManagerModel.Store.Usp_VertcalBaseTelecaller" />
           <FunctionImportMapping FunctionImportName="Usp_VerticalSearch1" FunctionName="PolicyManagerModel.Store.Usp_VerticalSearch" />
+          <FunctionImportMapping FunctionImportName="Usp_PolicyDocuments" FunctionName="PolicyManagerModel.Store.Usp_PolicyDocuments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PolicyManagerModel.Usp_PolicyDocuments_Result1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_InspectionByPolicyId" FunctionName="PolicyManagerModel.Store.Usp_InspectionByPolicyId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PolicyManagerModel.Usp_InspectionByPolicyId_Result1">
+                <ScalarProperty Name="InspectionId" ColumnName="InspectionId" />
+                <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+                <ScalarProperty Name="InspectionReason" ColumnName="InspectionReason" />
+                <ScalarProperty Name="InspectionStatus" ColumnName="InspectionStatus" />
+                <ScalarProperty Name="InspectionSubStatus" ColumnName="InspectionSubStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
