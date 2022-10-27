@@ -867,6 +867,7 @@ namespace PolicyManagement.Services.Common
         public async Task<DataTableDto<List<SearchPolicyDto>>> FindAllPolicies(SearchPolicyModel model)
         {
             string query = PreparePolicySearchQuery(model);
+            
             int totalCount = await _dataContext.Database.SqlQuery<int>(string.Format(query, "count(1)"), string.Empty).FirstOrDefaultAsync();
             try
             {

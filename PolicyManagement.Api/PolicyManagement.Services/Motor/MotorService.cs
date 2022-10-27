@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace PolicyManagement.Services.Motor
         }
         public async Task<CommonDto<object>> CreateMotorPolicy(MotorPolicyFormDataModel model, BaseModel baseModel)
         {
+            short DefaultRToZoneId = 1;
             try
             {
                 CommonDto<object> dataValidation = await ValidateData(model);
@@ -84,7 +86,7 @@ namespace PolicyManagement.Services.Motor
                     RegistrationNo = model.Vehicle.RegistrationNumber,
                     EngineNo = model.Vehicle.EngineNumber,
                     ChassisNo = model.Vehicle.ChassisNumber,
-                    RTOZoneId = model.Vehicle.RtoZone,
+                    RTOZoneId = (model.Vehicle.RtoZone==0)? DefaultRToZoneId : model.Vehicle.RtoZone,
                     MakeYearId = model.Vehicle.MakeYear,
                     VehicleUsageId = model.Vehicle.Usage,
                     SpecialRegistrationNo = model.Vehicle.IsSpecialRegistrationNumber,
@@ -568,22 +570,30 @@ namespace PolicyManagement.Services.Motor
                                                                      && !string.IsNullOrEmpty(f.EngineNo)
                                                                      && f.EngineNo.Length >= 5
                                                                      && f.EngineNo.ToLower().Substring(f.EngineNo.Length - 5).Equals(model.Vehicle.EngineNumber.ToLower().Substring(model.Vehicle.EngineNumber.Length - 5))
-                                                                     && !f.ControlNo.Equals(model.ControlNumber)
-                                                                     && f.PolicyEndDate.HasValue
-                                                                     && f.PolicyEndDate.Value > DateTime.Now.Date
+                                                                     && !f.ControlNo.Equals(model.ControlNumber)  
                                                                      && f.PolicyStatusId == 1;
 
-            tblMotorPolicyData data = await _dataContext.tblMotorPolicyData.FirstOrDefaultAsync(predicate);
-
-            if (data != null) return new CommonDto<object>
+            try
             {
-                Message = $"Same Engine Number and Chassis Number Data already in database as Control Number {data.ControlNo}, Please check for duplicate data entry.",
-                Response = new
+                tblMotorPolicyData data = await _dataContext.tblMotorPolicyData.FirstOrDefaultAsync(predicate);
+
+                if (data != null) return new CommonDto<object>
                 {
-                    IsWarning = true,
-                    IsError = false
-                }
-            };
+                    Message = $"Same Engine Number and Chassis Number Data already in database as Control Number {data.ControlNo}, Please check for duplicate data entry.",
+                    Response = new
+                    {
+                        IsWarning = true,
+                        IsError = false
+                    }
+                };
+            }
+
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message.ToString());
+            }
+
 
             #region Update Policy Data
             motorPolicyData.NameInPolicy = model.Customer.NameInPolicy;
